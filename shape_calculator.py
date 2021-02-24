@@ -28,13 +28,20 @@ class Rectangle:
         for row in range(self.height):
             for col in range(self.width):
                 picture.append("*")
-        picture.append("\n")
-        return "".join(picture) + "\n"
+            picture.append("\n")
+        return "".join(picture)
 
-    # TODO: Complete after creating the Square class
     def get_amount_inside(self, shape):
-        pass
+        return self.get_area() // shape.get_area()
 
-# TODO: Create Square class (Rectangle child class)
-class Square:
-    pass
+
+class Square(Rectangle):
+    def __init__(self, side):
+        super().__init__(side, side)
+
+    def __str__(self):
+        return f'Square(side={self.width})'
+
+    def set_side(self, side):
+        self.set_width(side)
+        self.set_height(side)
